@@ -1,0 +1,22 @@
+:root{
+  --light-green:#80ED99;
+  --lighter-green:#C7F9CC;
+  --super-light-green:#c7f9cc54;
+  --bluey: #355070;
+  --dark-bluey:#03071e;
+  --orange:#f48c06;
+  --sage:#728C69;
+  --orange-red:#f95738;
+  --red:#dc2f02;
+  --primaryfont:#555050;
+}
+body{
+  margin:0;
+  padding:0;
+}
+a{
+  text-decoration: none;
+}
+ul{
+ list-style-type:none;
+}

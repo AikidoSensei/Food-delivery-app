@@ -1,0 +1,70 @@
+.logo{
+ width:60px;
+ height:60px;
+}
+nav{
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ width:100%;
+ position:fixed;
+ z-index: 100;
+ padding-top: 5px;
+ background-color: transparent;
+
+}
+.nav-container{
+ display:flex;
+ align-items: center;
+ justify-content: space-between;
+ width:80%;
+ padding:0 20px;
+ border-radius: 2rem;
+}
+.links{
+ display:flex;
+ gap:1.5rem;
+ width:auto;
+ font-family: comic sans ms;
+ font-size: 15pt;
+}
+.links a{
+  color:rgb(36, 52, 36);
+}
+.cart-icon{
+ width:30px;
+ height:30px;
+ cursor:pointer;
+ transition:.2s;
+}
+.cart-icon:active{
+ scale:1.2;
+}
+.menu{
+ width:20px;
+ height:3px;
+ border-radius: 2px;
+ background-color: var(--desert-gray);
+ position:relative;
+ margin-left: 20px;
+}
+.menu::before{
+ content:"";
+ position:absolute;
+ top:7px;
+ left: 0;
+ width:10px;
+ height:3px;
+ border-radius: 2px;
+ background-color: var(--desert-gray);
+}
+.menu::after{
+ content:"";
+ position:absolute;
+ bottom:7px;
+ left: 0;
+ width:20px;
+ height:3px;
+ border-radius: 2px;
+ background-color: var(--desert-gray);
+}
