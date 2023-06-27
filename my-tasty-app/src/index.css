@@ -1,14 +1,16 @@
 :root{
-  --light-green:#80ED99;
+  --light-green:#99cd322c;
   --lighter-green:#C7F9CC;
-  --super-light-green:#c7f9cc54;
-  --bluey: #355070;
+  --super-light-dark:#0000002c;
+  --background-color:#0000000e;
+  --dark-shadow: #00000042;
   --dark-bluey:#03071e;
   --orange:#f48c06;
   --sage:#728C69;
   --orange-red:#f95738;
   --red:#dc2f02;
   --primaryfont:#555050;
+  --grey:#989898;
 }
 body{
   margin:0;

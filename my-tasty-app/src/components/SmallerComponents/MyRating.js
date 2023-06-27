@@ -2,8 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 const MyRating = () => {
  const [rating, setRating] = useState('');
-console.log(rating);
-
   return (
     <div
       style={{

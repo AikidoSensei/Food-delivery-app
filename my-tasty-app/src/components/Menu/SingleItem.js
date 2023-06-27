@@ -9,7 +9,7 @@ const SingleItem = () => {
         <i className='fa-sharp fa-solid fa-heart fav'></i>
         <h4>Food Name</h4>
         <h2>
-          <span>£</span>99
+          £99
         </h2>
         <p>
           <i className='fa-solid fa-star rating'></i>3.5

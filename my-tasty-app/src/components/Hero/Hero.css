@@ -11,13 +11,9 @@
   justify-content: center;
   align-items: top;
   background: url('../../Image-resources/tasty-hero-wallpaper.jpg') no-repeat center center/cover;
-
-  /* background-color: grey;
-  background-blend-mode: multiply; */
 }
 
 .slate {
-  /* background-color:var(--super-light-green); */
   width: 80%;
   height: 300px;
   border-radius: 50px;
@@ -77,4 +73,16 @@
 .order-now:hover:before{
  width:100%
 }
-
+@media screen and (max-width:600px){
+  .left-hero{
+    padding-top: 30px;
+  }
+ .left-hero > h1{
+ font-size: 50pt;
+ line-height: 70pt;
+}
+.left-hero span{
+ font-size: 70pt;
+  line-height: 70pt;
+}
+}

@@ -5,7 +5,7 @@ import SingleItem from './SingleItem'
 const Menu = () => {
   return (
     <main className='menu-wrapper'>
-      <main className='menu-container'>
+      <section className='menu-container'>
         <h3>Choose from our popular categories</h3>
         <section className='list-container'>
           <a className='menu-btn active' href='#'>
@@ -54,7 +54,7 @@ const Menu = () => {
             <SingleItem/>
           </article>
         </section>
-      </main>
+      </section>
     </main>
   )
 }
