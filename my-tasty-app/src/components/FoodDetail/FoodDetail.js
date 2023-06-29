@@ -3,14 +3,13 @@ import './FoodDetail.css'
 import testImg from '../../Image-resources/hero-image.jpg'
 import MyRating from '../SmallerComponents/MyRating'
 import MyCount from '../SmallerComponents/MyCount'
+import BackBtn from '../SmallerComponents/BackBtn'
 const FoodDetail = () => {
   return (
     <main className='detail-wrapper'>
       <section className='detail-container'>
        
-        <div className='back-btn'>
-          <i class='fa-solid fa-arrow-left'></i>
-        </div>
+        <BackBtn/>
         {/* main-details section */}
         <article className='main-detail'>
           <div className='left-detail'>

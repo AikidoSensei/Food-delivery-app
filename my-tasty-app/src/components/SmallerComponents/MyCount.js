@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import './SmallerComponentsStyles.css'
-const MyCount = () => {
+const MyCount = ({scale}) => {
   return (
-    <div  className='count-wrapper'>
+    <div  className='count-wrapper' style={{scale:scale}}>
       <div className='count-container'>
         <span>
           <i className='fa-solid fa-minus'></i>
