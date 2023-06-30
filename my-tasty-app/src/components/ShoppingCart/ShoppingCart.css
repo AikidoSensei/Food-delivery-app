@@ -77,10 +77,22 @@
  padding:1px 10px;
  border-radius: 20px;
  background:url(../../Image-resources/other-images/pexels-lumn-1410235.jpg) no-repeat center center/cover;
-
  backdrop-filter: blur(4px);
  z-index: 0;
+ transform: rotate(12deg);
+ animation: animate 2.5s ease-in-out;
+}
+@keyframes animate {
+ 0%{
+  transform:rotate(0deg)
+ }
+ 50%{
+  transform:rotate(15deg) ;
+ }
+ 100%{
   transform: rotate(12deg);
+ }
+
 }
 .discount-card>div{
  display:flex;
