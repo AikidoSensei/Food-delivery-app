@@ -1,22 +1,26 @@
 import React from 'react'
-import logo from './logo.svg';
-import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import Hero from './components/Hero/Hero'
-import Menu from './components/Menu/Menu';
-import FoodDetail from './components/FoodDetail/FoodDetail';
-import ShoppingCart from './components/ShoppingCart/ShoppingCart';
-
+import './App.css'
+import FoodDetail from './components/FoodDetail/FoodDetail'
+import ShoppingCart from './components/ShoppingCart/ShoppingCart'
+import HomePage from './components/HomePage/HomePage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import SharedComponent from './SharedComponent'
+import Location from './components/Location/Location'
+import Contacts from './components/Contacts/Contacts';
 function App() {
   return (
-    <div className="App">
-     <NavBar/>
-     <Hero/>
-     <Menu/>
-     <FoodDetail/>
-     <ShoppingCart/>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<SharedComponent />}>
+          <Route index element={<HomePage />} />
+          <Route path='food-detail' element={<FoodDetail />} />
+          <Route path='cart' element={<ShoppingCart />}/>
+          <Route path='location' element={<Location />}/>
+          <Route path='contacts' element={<Contacts/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  ) 
 }
 
-export default App;
+export default App

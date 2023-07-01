@@ -2,12 +2,15 @@ import React from 'react'
 import './ShoppingCart.css'
 import BackBtn from '../SmallerComponents/BackBtn'
 import SingleCartItem from './SingleCartItem'
+import { Link } from 'react-router-dom'
 const ShoppingCart = () => {
   return (
     <main className='cart-wrapper'>
       <section className='cart-container'>
         <div className='back-title'>
+          <Link to='/'>
           <BackBtn />
+          </Link>
           <h2>Your Shopping Cart</h2>
         </div>
         {/* CART CONTAINER */}

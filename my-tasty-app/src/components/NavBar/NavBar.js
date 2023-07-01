@@ -4,6 +4,7 @@ import './NavBar.css'
 import logo1 from '../../logo-1.png'
 import CartIcon from './CartIcon'
 import MySearchBar from '../SmallerComponents/MySearchBar'
+import { Link, Outlet } from 'react-router-dom'
 const NavBar = () => {
   const [showNav, setShowNav] = useState(false);
 
@@ -13,6 +14,7 @@ const NavBar = () => {
     })
   }
   return (
+    
     <nav>
       <div className='nav-container'>
         <div className='logo-section'>
@@ -25,9 +27,14 @@ const NavBar = () => {
           <a href=''>Contact</a>
         </div>
         <MySearchBar />
+        <Link to='/cart'>
         <div className="cart-icon-container">
+          <div className="cart-item-amount">
+            <span>2</span>
+          </div>
         <CartIcon />
         </div>
+        </Link>
         <div className='main-nav' onClick={(e) => {
           e.stopPropagation();
           setShowNav(!showNav)}}>

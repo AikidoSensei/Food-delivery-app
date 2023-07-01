@@ -21,7 +21,7 @@ nav{
  border-radius: 2rem;
  background-color: #99cd3233;
  backdrop-filter: blur(10px);
- position:relative;
+ /* position:relative; */
 }
 .links{
  display:flex;
@@ -44,6 +44,8 @@ nav{
 .cart-icon-container{
   width:30px;
   margin-left: 10px;
+  position:relative;
+  transition: 0.3s;
 }
 .cart-icon{
  width:30px;
@@ -51,9 +53,24 @@ nav{
  cursor:pointer;
  transition:.2s;
 }
-.cart-icon:active{
+.cart-icon-container:active{
  scale:1.2;
 }
+.cart-item-amount{
+  position:absolute;
+  right:-5px;
+  top:-5px;
+  font-size: 8pt;
+  font-family: 'Poppins';
+  width:15px;
+  height:15px;
+  color:white;
+  display:flex;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--red);
+}
+
 .main-nav{
  width:40px;
  cursor:pointer;
