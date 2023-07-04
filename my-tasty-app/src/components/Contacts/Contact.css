@@ -1,2 +1,149 @@
+.contact-wrapper{
+ display:flex;
+ justify-content: center;
+ width:100%;
+ height:auto;
+ padding-top:100px;
+ font-family: 'Poppins';
+ text-align: left;
+ background-color: rgba(0, 0, 0, 0.053);
 
+}
+.contact-container{
+ display:flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ width:80%;
+ border-radius: 30px;
+ height:auto;
+ padding:0 30px;
+ background-color: white;
+ box-shadow: 0 0 50px var(--dark-shadow);
+ position: relative;
+}
+.contact-back-btn{
+ position: absolute;
+ top:10px;
+ left:10px
+}
+.left-contact{
+ width:50%;
+}
+.contact-image{
+ width:50%;
+}
+.contact-image img{
+ width:100%;
+}
+.c-container{
+ display:flex;
+ flex-wrap: wrap;
+ gap:2rem;
+}
+.contact{
+ background-color: var(--light-green);
+ min-width:200px;
+ padding:0px 10px;
+ display:block;
+ padding:5px 10px;
+ border-radius: 10px;
+}
+.contact div{
+ width:90%;
+ display: flex;
+ align-items:first baseline;
+ justify-content: space-between;
+}
+.logo-btn{
+ width: 35px;
+ height: 30px;
+ background-color: yellowgreen; 
+ color:white;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 5px;
+ cursor:pointer;
+ 
+}
+.f-detail{
+ display: flex;
+ flex-direction: column;
+ line-height: 0px;
+ margin-left: 10px;
+}
+.contact button{
+ width:90%;
+ padding:5px 10px;
+ font-size: 15pt;
+ border-radius: 10px;
+ background-color: yellowgreen;
+ color: white;
+ font-weight: 500;
+ border:none;
+ cursor:pointer;
+ transition: 0.3s ease-in-out;
+}
+.contact button:hover{
+ scale:1.05;
+ box-sizing: 0 0 10px white;
+}
+@media screen and (max-width:1024px) {
+ .contact-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ }
+ .contact-image{
+  width:100%;
+ }
+ .left-contact{
+  width:100%;
+  text-align: center;
+ }
+ .c-container{
+  display: flex;
+  justify-content: center;
+ }
+ .contact{
+ min-width:300px;
+}
+}
+.review-container{
+ width:100%;
+ height:400px;
+ display:flex;
+ justify-content: center;
+}
+.review-content{
+ display: flex;
+ flex-direction: column;
+ text-align: center;
+ width:80%;
+}
+.review-content textarea{
+ width:100%;
+ min-height:100px;
+ outline:none;
+ resize: none;
+ border: solid 2px var(--grey);
+ font-size: 18pt;
+ border-radius: 20px;
+ margin-bottom: 20px;
+}
+.review-content button{
 
+ padding:5px 10px;
+ font-size: 15pt;
+ border-radius: 10px;
+ background-color: yellowgreen;
+ color: white;
+ font-weight: 500;
+ border:none;
+ cursor:pointer;
+ transition: 0.3s ease-in-out;
+}
+.review-content button:hover{
+ scale:1.05;
+ box-sizing: 0 0 10px white;
+}

@@ -52,3 +52,20 @@
  font-size: 35pt;
  color: yellowgreen;
 }
+@media screen and (max-width:600px) {
+.food-content{
+ padding:5px 15px;
+}
+.food-content > img{
+ width:100px;
+ height: 80px;
+ border-radius: 10px;
+}
+
+.fav{
+ position:absolute;
+ right:18px;
+ top:10px;
+ color:var(--red)
+}
+}
