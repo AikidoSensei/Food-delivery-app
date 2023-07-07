@@ -61,17 +61,22 @@ nav{
   position:absolute;
   right:-5px;
   top:-5px;
-  font-size: 8pt;
   font-family: 'Poppins';
   width:15px;
   height:15px;
   color:white;
   display:flex;
   justify-content: center;
+  align-items: center;
   border-radius: 50%;
   background-color: var(--red);
 }
-
+.cart-item-amount span{
+  font-size: 10pt;
+}
+.no-amount{
+  display:none
+}
 .main-nav{
  width:40px;
  cursor:pointer;

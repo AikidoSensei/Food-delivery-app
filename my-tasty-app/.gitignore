@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-
+../tasty-backend/node_modules
 /.pnp
 .pnp.js
 /src/assets

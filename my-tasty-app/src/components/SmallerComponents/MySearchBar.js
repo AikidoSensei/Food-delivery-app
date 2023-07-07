@@ -4,8 +4,7 @@ import { SearchContext } from '../NavBar/NavBar'
 const MySearchBar = () => {
  const [search, setSearch] = useState('')
  const { handleSearch } = useContext(SearchContext)
- console.log(handleSearch);
- 
+
   return (
     <div className='search-wrapper'>
       <div className='search-container'>

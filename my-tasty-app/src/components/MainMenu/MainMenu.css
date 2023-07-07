@@ -3,26 +3,31 @@
  justify-content: center;
  /* align-items: center; */
  width:100%;
+ min-height: 100vh;
  height:auto;
  padding-top:100px;
  font-family: 'Poppins';
  text-align: left;
- background-color: rgba(0, 0, 0, 0.053);
+ background-color: rgba(255, 255, 255, 0.053);
 }
 .main-container{
  display:flex;
  flex-direction: column;
  width:80%;
  border-radius: 30px;
+ min-height: 1200px;
  height:auto;
  padding:0 30px;
+ padding-bottom: 30px;
  background-color: white;
  box-shadow: 0 0 50px var(--dark-shadow);
 }
 .main-content{
  width:100%;
  display:flex;
- height:auto
+ height:auto;
+ padding-bottom: 30px;
+
 }
 .main-left{
  color:var(--grey);
@@ -36,16 +41,16 @@
 }
 .category-wrapper{
  position:absolute;
- top:110px;
+ top:100px;
  left:-15px;
  width:300px;
  height:auto;
  z-index: 10;
  padding:10px 20px;
- padding-bottom: 30px;
  background-color: white;
-  box-shadow: 0 0 10px var(--dark-shadow);
-   border-radius: 30px;
+ padding-bottom: 30px;
+ box-shadow: 0 0 10px var(--dark-shadow);
+ border-radius: 30px;
 }
 .category-container{
  display:flex;
@@ -59,8 +64,15 @@
  color:var(--primaryfont);
  width:100%;
  height:30px;
+ cursor: pointer;
  font-weight: 600;
  text-decoration: none;
+ transition:0.3s;
+ padding-left: 10px;
+}
+.category-container a:hover{
+  background-color: var(--hyper-light-dark);
+  padding-left:20px;
 }
 .category-container a i{
  margin-right: 10px;
@@ -68,13 +80,17 @@
 .main-right{
  width:100%;
  height:auto;
- padding-top: 10px;
+ /* padding-top: 10px; */
+ /* background-color: lightgreen; */
+ margin-top: 0;
+ 
 }
 .top-menu{
  display: flex;
  align-items: center;
  justify-content: space-between;
  height:30px;
+  /* background-color: pink; */
 }
 .top-menu span{
  height: 100%;
@@ -102,10 +118,19 @@
  justify-content: center;
  gap:2rem;
 }
+.dish-container a{
+  color:black
+}
 @media screen and (max-width:600px) {
  span, p{
   font-size: 10pt;
  }
+ .main-container{
+  width:100%;
+ }
+ .category-wrapper{
+ width:320px;
+}
 }
 /* SORT BY RATING */
 .rating-sort{

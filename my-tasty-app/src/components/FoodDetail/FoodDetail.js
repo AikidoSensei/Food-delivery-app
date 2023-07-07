@@ -1,19 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './FoodDetail.css'
 import testImg from '../../Image-resources/hero-image.jpg'
 import MyRating from '../SmallerComponents/MyRating'
 import MyCount from '../SmallerComponents/MyCount'
 import BackBtn from '../SmallerComponents/BackBtn'
+import { useSelector, useDispatch } from 'react-redux'
+import { getOneProduct } from '../../features/FilterSlice'
+import Loading from '../SmallerComponents/Loading'
 const FoodDetail = () => {
+const {singleProduct, apiLoading, isError } = useSelector((state)=>state.filter);
+const [myProducts, setMyProducts] = useState()
+
+const { image, food_name,price, category, description, rating, reviews} = singleProduct;
+useEffect(()=>{
+  setMyProducts(myProducts);
+},[])
   return (
     <main className='detail-wrapper'>
       <section className='detail-container'>
        
         <BackBtn/>
         {/* main-details section */}
-        <article className='main-detail'>
+        {  apiLoading ? <Loading/> :    <article className='main-detail'>
           <div className='left-detail'>
-            <img className='detail-img' src={testImg} alt='' />
+            <img className='detail-img' src={image} alt='' />
           </div>
           {/* product details on the right has 3 sections  */}
           <div className='right-detail'>
@@ -23,20 +33,16 @@ const FoodDetail = () => {
                 className='fa-solid fa-heart detailed'
                 style={{ color: 'var(--red)' }}
               ></i>
-              <h2>Pasta Pepper Soup Ganished</h2>
+              <h2>{food_name}</h2>
               <MyRating />
               <div className='anniversary'>Anniversary Deal</div>
             </section>
             {/* section 2 */}
             <section className='detail-price'>
              <div className="price-section">
-             <h2>£99.99</h2><span>£150.99</span>
+             <h2>£{price}.99</h2><span>£{Math.floor(price * 1.2)}.99</span>
              </div>
-              <p>Lorem ipsum dolor sit amet.
-              Suscipit eum eos hic maxime.
-              Natus, excepturi? Voluptatum, facilis repellat.
-              Distinctio, dicta maiores. Molestiae, nobis.
-              Libero corrupti iusto tenetur alias! <br /> </p>
+              <p>{description}<br /> </p>
               <div className="count-container">
                QTY
               <MyCount/>
@@ -50,9 +56,9 @@ const FoodDetail = () => {
               </a>
             </section>
           </div>
-        </article>
         <div className='similar-products'></div>
         <div className='product-reviews'></div>
+        </article>}
       </section>
     </main>
   )

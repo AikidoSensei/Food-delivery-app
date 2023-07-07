@@ -9,7 +9,7 @@ import Location from './components/Location/Location'
 import Contacts from './components/Contacts/Contacts';
 import PageNotFound from './components/SmallerComponents/PageNotFound'
 import MainMenu from './components/MainMenu/MainMenu'
-import Stars from './components/SmallerComponents/Stars'
+import Favourite from './components/Favourite/Favourite'
 function App() {
   return (
     <BrowserRouter>
@@ -21,8 +21,8 @@ function App() {
           <Route path='contact' element={<Contacts/>}/>
           <Route path='menu' element={<MainMenu/>}/>
           <Route path='location' element={<Location />}/>
-          <Route path='stars' element={
-            <Stars/>
+          <Route path='favourite' element={
+            <Favourite/>
           }/>
           <Route path='*' element={<PageNotFound/>}/>
         </Route>

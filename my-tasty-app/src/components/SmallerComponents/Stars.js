@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Stars = ({rate}) => {
+const Stars = ({rate, scale}) => {
   return (
-    <div className='immutable-wrapper'>
+    <div className='immutable-wrapper' style={{scale:scale}}>
       <div className='immutable-container'>
         <div className='immutable-content'>
           <i

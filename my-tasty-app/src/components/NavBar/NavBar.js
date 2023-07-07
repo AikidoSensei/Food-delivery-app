@@ -6,10 +6,11 @@ import CartIcon from './CartIcon'
 import MySearchBar from '../SmallerComponents/MySearchBar'
 import { Link } from 'react-router-dom'
 import Search from '../SmallerComponents/Search'
-
+import { UseSelector, useSelector } from 'react-redux'
 export const SearchContext = React.createContext()
 
 const NavBar = () => {
+  const {amount} = useSelector((state)=>state.cart)
   const [showNav, setShowNav] = useState(false);
   const [showSearch, setShowSearch] = useState(false) 
   if(showNav===true){
@@ -53,8 +54,8 @@ const NavBar = () => {
           </div>
           <Link to='/cart'>
             <div className='cart-icon-container'>
-              <div className='cart-item-amount'>
-                <span>2</span>
+              <div className={amount > 0 ? 'cart-item-amount':'no-amount'}>
+                <span>{amount}</span>
               </div>
               <CartIcon />
             </div>

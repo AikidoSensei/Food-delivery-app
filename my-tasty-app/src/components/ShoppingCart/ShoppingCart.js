@@ -3,7 +3,10 @@ import './ShoppingCart.css'
 import BackBtn from '../SmallerComponents/BackBtn'
 import SingleCartItem from './SingleCartItem'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const ShoppingCart = () => {
+  const {cartItems} = useSelector((state)=>state.cart)
+  console.log(cartItems);
   return (
     <main className='cart-wrapper'>
       <section className='cart-container'>
@@ -33,12 +36,12 @@ const ShoppingCart = () => {
             </div>
             <div className='right-cart'>
              <div className="cart-items-container">
-              <SingleCartItem/>
-              <SingleCartItem/>
-              <SingleCartItem/>
-              <SingleCartItem/>
-              <SingleCartItem/>
-              <SingleCartItem/>
+              {
+                cartItems.map((item)=>{
+                 return <SingleCartItem product={item}/>
+                })
+              }
+              
              </div>       
             </div>
           </div>
