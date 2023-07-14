@@ -19,9 +19,20 @@ nav{
  width:80%;
  padding:0 20px;
  border-radius: 2rem;
- background-color: #99cd3233;
+ background-color: var(--lighter-green);
  backdrop-filter: blur(10px);
- /* position:relative; */
+ position:relative;
+ transition:1
+}
+.display-nav{
+display:flex;
+ align-items: center;
+ justify-content: space-between;
+ width:80%;
+ padding:0 20px;
+ border-radius: 2rem;
+ position:relative;
+ transition: 0.3s;
 }
 .links{
  display:flex;
@@ -30,18 +41,23 @@ nav{
  font-family: 'Poppins';
  font-size: 12pt;
 }
-.links a{
-  color:rgb(36, 52, 36);
+.link{
+  color:#243424;
   transition:.3s;
   padding:5px 10px;
   border-radius: 20px;
 }
-.links a:hover{
+.link:hover{
   background-color:rgba(153, 205, 50, 0.98);
   color:white;
-
 }
-
+.active{
+  background-color:rgba(153, 205, 50, 0.98);
+  color:white;
+  padding:5px 10px;
+  transition:.3s;
+  border-radius: 20px;
+}
 .cart-icon-container{
   width:30px;
   margin-left: 10px;
@@ -84,8 +100,6 @@ nav{
  display:flex;
  justify-content: center;
  align-items: center;
- animation: navbar 1.5s ease-in-out;
- animation-delay: 0.3s;
 }
 .menu{
  display: none;
@@ -95,10 +109,11 @@ nav{
  background-color: yellowgreen;
  position:relative;
  margin-left: 8px;
+ transition:0.5s ease-in-out;
 }
-.menu.active{
+.menu.activate{
  transform: rotate(135deg);
- transition:0.5s;
+ transition:0.5s ease-in-out;
 
 }
 .menu::before{
@@ -110,7 +125,7 @@ nav{
  height:3px;
  border-radius: 2px;
  background-color: yellowgreen;
- transition: 0.3s;
+transition:0.3s ease-in-out;
 
 }
 .menu::after{
@@ -122,15 +137,17 @@ nav{
  height:3px;
  border-radius: 2px;
  background-color: yellowgreen;
- transition:0.3s;
+ transition:0.3s ease-in-out;
 }
-.menu.active::after{
+.menu.activate::after{
   bottom:0px;
   transform: rotate(90deg);
+  transition:0.3s ease-in-out;
 }
-.menu.active::before{
+.menu.activate::before{
   top:0px;
-  height:0
+  height:0;
+  transition:0.3s ease-in-out;
 }
 /* MOBILE NAV-BAR */
 .mobile-nav{
@@ -182,9 +199,47 @@ nav{
 .mobile-nav a:hover::after{
  width:90%
 }
-
 .show-nav{
   transform:translateX(500px)
+}
+.mobile-nav :nth-child(5){
+  color:white;
+}
+.log-out{
+  background-color: yellowgreen;
+  height:50px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;
+}
+.log-out p{
+  font-family: 'Poppins';
+  font-size: 15pt;
+}
+.user-log{
+  display:none;
+  cursor:pointer;
+  font-family:'Poppins';
+  color:white;
+  background-color: yellowgreen;
+  border:none;
+  border-radius: 20px;
+  height: 30px;
+  padding-inline: 10px;
+  padding-top: 2px;
+}
+
+@media screen and (min-width:992px) {
+  .user-log{
+  display:block;
+}
+ .main-nav{
+    margin-left: 15px;
+    margin-right: 10px;
+  }
 }
 @media screen and (max-width: 992px) {
   .links{
@@ -193,10 +248,17 @@ nav{
   .menu{
     display:block;
   }
+ 
 }
 @media screen and (max-width:600px){
  .nav-container{
   width:100%;
-  padding: 0 10px
+  padding: 0 10px;
+  transition: 1s;
+
  }
+ .display-nav{
+   transition: 1s;
+   width:110%;
 }
+ }

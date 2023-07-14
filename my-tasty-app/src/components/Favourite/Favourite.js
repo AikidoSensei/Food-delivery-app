@@ -1,30 +1,30 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Favourite.css'
 import testImg from '../../Image-resources/hero-image.jpg'
+import { useDispatch, useSelector } from 'react-redux'
+import BackBtn from '../SmallerComponents/BackBtn'
+import { removeFromFavourite } from '../../features/FavouriteSlice'
+import { addToCart } from '../../features/CartSlice'
+import SingleFavourite from './SingleFavourite'
 const Favourite = () => {
-  return (
+  const dispatch = useDispatch()
+  const {favouriteItems} = useSelector((state)=>state.favourite)
+  console.log(favouriteItems);
+  const [showCart, setShowCart] = useState(true)
+  console.log(favouriteItems);
+ return (
     <main className='favourite-wrapper'>
       <section className='favourite-container'>
-       <div className="favourite-content">
-        <div className='favourite'>
-         <div className="fav-image">
-          <img src={testImg} alt='test' />
-         </div>
-          <div className='favourite-detail'>
-            <div className='top-fav'>
-              <p>Chicken Jollof</p>
-              <button>ORDER</button>
-            </div>
-            <div className='bottom-fav'>
-              <div className='price-fav'>
-                <h3>£99</h3>
-                <span>.99</span>
-              </div>
-              <p>REMOVE</p>
-            </div>
-          </div>
+        <div className="main-top-fav">
+      <BackBtn/>
+      <h2>Your favourites</h2>
         </div>
-       </div>
+     
+        {favouriteItems.length < 1 ?
+        <h2 className='no-listed'>You have no favourite listed</h2> :
+        favouriteItems.map((fav)=>{
+          return <SingleFavourite fav={fav}/>
+        })}
       </section>
     </main>
   )

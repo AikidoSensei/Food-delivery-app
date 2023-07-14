@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {getAll, getCategory, getRating, getPrice, getOne } from "../api-handler/axios";
+import {getAll, getCategory, getRating, getPrice, getOne, getHotDeals } from "../api-handler/axios";
 
  export const getProducts = createAsyncThunk('products/getProducts', getAll)
 
@@ -11,10 +11,12 @@ import {getAll, getCategory, getRating, getPrice, getOne } from "../api-handler/
 
  export const getOneProduct = createAsyncThunk('products/getOne', getOne)
 
+  export const getMyHotDeals = createAsyncThunk('hot/getHotDeals', getHotDeals)
 
 const initialState = {
  productItems:[],
  singleProduct:[],
+ hotDeals:[],
  price:0,
  rating:0,
  apiLoading:false,
@@ -50,7 +52,6 @@ const filterSlice = createSlice({
     },
     [sortCategory.fulfilled]: (state, action) => {
       const category = action.payload
-      console.log(category)
       state.apiLoading = false
       state.productItems = category
     },
@@ -63,7 +64,6 @@ const filterSlice = createSlice({
     },
     [sortPrice.fulfilled]: (state, action) => {
       const price = action.payload
-      console.log(price)
       state.apiLoading = false
       state.productItems = price
     },
@@ -76,11 +76,21 @@ const filterSlice = createSlice({
     },
     [sortRating.fulfilled]: (state, action) => {
       const rating = action.payload
-      console.log(price)
       state.apiLoading = false
       state.productItems = rating
     },
     [sortRating.rejected]: (state) => {
+      state.isError = true
+    },
+    //GET HOT DEALS
+    [getMyHotDeals.pending]: (state) => {
+      state.apiLoading = true
+    },
+    [getMyHotDeals.fulfilled]: (state, action) => {
+      const hotDeals = action.payload
+      state.hotDeals = hotDeals
+    },
+    [getMyHotDeals.rejected]: (state) => {
       state.isError = true
     },
     //GET ONE PRODUCT

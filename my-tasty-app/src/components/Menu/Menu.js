@@ -4,7 +4,6 @@ import SingleItem from './SingleItem'
 import { getProducts, sortCategory } from '../../features/FilterSlice';
 import { useSelector, useDispatch } from 'react-redux'
 import Loading from '../SmallerComponents/Loading';
-
 const Menu = () => {
   const { productItems, apiLoading } = useSelector((state) => state.filter)
   const [data, setData] = useState([])
@@ -12,10 +11,12 @@ const Menu = () => {
   useEffect(() => {
     dispatch(getProducts())    
   }, [])
+  // console.log(productItems);
   return (
     <main className='menu-wrapper'>
       <section className='menu-container'>
         <h3>Choose from our popular categories</h3>
+        {/* <a>{faPlusSquare}</a> */}
         <section className='list-container'>
           {/* <Categories/> */}
           <a
@@ -78,13 +79,15 @@ const Menu = () => {
           </a>
         </section>
         <section className='food-wrapper'>
-          {apiLoading ? <Loading/> : 
-          <article className='food-container'>
-            {productItems.map((item) => {
-              return <SingleItem product={item} />
-            })}
-          </article>
-          }
+          {apiLoading ? (
+            <Loading />
+          ) : (
+            <article className='food-container'>
+              {productItems.map((item) => {
+                return <SingleItem product={item} />
+              })}
+            </article>
+          )}
         </section>
       </section>
     </main>

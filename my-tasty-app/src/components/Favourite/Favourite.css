@@ -1,27 +1,37 @@
 .favourite-wrapper{
  display:flex;
  justify-content: center;
+ flex-direction: column;
  align-items: center;
  width:100%;
- height:700px;
- padding-top:80px;
+ height:auto;
+ padding:100px 0;
  font-family: 'Poppins';
  text-align: left;
  background-color: rgba(0, 0, 0, 0.053);
+}
+.main-top-fav{
+ display:block;
+ justify-content: left;
+ width:80%;
+ line-height: 10px;
 }
 .favourite-container{
  display:flex;
  flex-direction: column;
  width:90%;
  border-radius: 30px;
- height:500px;
+ height:auto;
+ min-height: 500px;
  background-color: white;
  box-shadow: 0 0 50px var(--dark-shadow);
  align-items: center;
  font-family: 'Poppins';
  padding-inline: 10px;
- padding-block: 50px;
+ padding-top: 10px;
+ padding-bottom: 50px;
  gap: 2rem;
+ text-align: left;
  
 }
 .favourite-content{
@@ -29,7 +39,10 @@
  display:flex;
  justify-content: center;
  align-items: center;
-
+}
+.no-listed{
+ margin-top: 100px;
+ color:var(--primaryfont)
 }
 .favourite{
  display: flex;
@@ -65,17 +78,10 @@
  display: flex;
  align-items: center;
 }
-.top-fav button{
- background-color: yellowgreen;
- height:30px;
- border:none;
- border-radius: 10px;
- color:white;
- box-shadow: 0 3px 10px var(--dark-shadow);
- font-size: 8pt;
- width:50px
-
-
+.top-fav i{
+ color: yellowgreen;
+ font-size: 20pt;
+ cursor:pointer
 }
 .bottom-fav{
  height:50%;
@@ -83,7 +89,8 @@
 }
 .bottom-fav p{
  font-weight: 600;
- color: yellowgreen;
+ color: var(--red);
+ cursor:pointer
 }
 .price-fav{
  display:flex;

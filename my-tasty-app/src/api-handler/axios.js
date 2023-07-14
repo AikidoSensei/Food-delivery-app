@@ -42,6 +42,14 @@ export const getPrice = async(price)=>{
   console.log(error);
  }
 }
+export const getHotDeals = async()=>{
+ try {
+  const response = await queryProducts.get('/hot-deals')
+  return response.data;
+ } catch (error) {
+  console.log(error);
+ }
+}
 export const getOne = async(id)=>{
  try {
   const response = await queryProducts.get(`/food-detail/${id}`)
@@ -51,5 +59,12 @@ export const getOne = async(id)=>{
   console.log(error);
  }
 }
-
+export const getQuery = async(query)=>{
+ try {
+  const response = await queryProducts.get(`/find/?query=${query}`)
+  return response.data
+ } catch (error) {
+  
+ }
+}
 export default queryProducts

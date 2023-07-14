@@ -58,12 +58,13 @@
  height: 20px;
  display: flex;
  justify-content: flex-end;
+ align-items: center;
  text-align: right;
  right:0;
  bottom:10px;
 }
 .item-price h3{
- font-size: 20pt;
+ font-size: 18pt;
  font-family: arial;
 }
 
@@ -97,7 +98,44 @@
  font-size: 30pt;
  bottom:-10px;
  transform: translateX(125%);
+ transition:0.3s
 
+}
+.menu-remove-item{
+ color:red;
+ position:absolute;
+ font-size: 30pt;
+ bottom:-10px;
+ transform: translateX(125%) rotate(45deg);
+ transition:0.3s
+
+}
+.added-modal{
+ display:none;
+ position:absolute;
+ top:5px;
+ left:25%;
+ font-size: 8pt;
+ color:white;
+ border:none;
+ box-shadow: 0 0 5px var(--dark-shadow);
+ background-color: yellowgreen;
+ border-radius: 10px;
+ padding:0 5px;
+ height:20px;
+ display:flex;
+ justify-content: center;
+ align-items:center;
+ animation: added 0.2s ease-in-out;
+}
+@keyframes added {
+ 0%{
+  display:block;
+  transform:translateY(-10px)
+}
+ 50%{
+  transform:scaleX(1.2)
+ }
 }
 /* }
 @media screen and (max-width:600px) {

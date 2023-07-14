@@ -1,0 +1,200 @@
+.login-wrapper{
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ width:100%;
+ min-height: 100vh;
+ height:auto;
+ padding-top:30px;
+ font-family: 'Poppins';
+ text-align: left;
+ background-color: var(--background-color);
+ color:rgba(0, 0, 0, 0.758);
+}
+.login-container{
+ display:flex;
+ flex-direction: column;
+ min-width: 300px;
+ width: 30%;
+ /* width:30%; */
+ border-radius: 30px;
+ /* min-height: 1200px; */
+ min-height:500px;
+ padding:0 30px;
+ padding-bottom: 30px;
+ background-color: white;
+ padding-inline: 20px;
+ box-shadow: 0 0 10px var(--dark-shadow);
+}
+.login-content{
+ width:100%;
+ display:flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ height:auto;
+ padding-bottom: 30px;
+ gap:1rem
+}
+.login-content>img{
+ width:100px;
+ height:100px
+}
+
+.google-login{
+ width:70%;
+ height:40px;
+ /* background-color: black; */
+ color:rgba(0, 0, 0, 0.758);
+ border:solid 1px var(--dark-shadow);
+ font-family: 'Poppins';
+ border-radius: 20px;
+ font-size: clamp(10pt, 2.5vw, 12pt);
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ margin-bottom: 10px;
+ cursor:pointer;
+}
+.google-login img{
+ width:20px;
+ height:20px;
+ margin-right: 20px;
+}
+.login-line{
+ width: 70%;
+ border:none;
+ border-bottom: solid 1px rgba(0, 0, 0, 0.325);
+ position: relative;
+ height: 2px;
+ text-align: center;
+}
+.login-line>p{
+ position:absolute;
+ top:-700%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ background-color: white;
+ padding-inline: 5px;
+
+ 
+}
+.email-container{
+ position:relative;
+ width:70%;
+ height:40px;
+ /* background-color: black; */
+ color:rgba(0, 0, 0, 0.758);
+ border:solid 1px var(--dark-shadow);
+ font-family: 'Poppins';
+ border-radius: 20px;
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 20px;
+}
+.input{
+ width:90%;
+ outline: none;
+ border:none;
+ transition: 0.3s ease-in-out;
+}
+.label{
+ position: absolute;
+ background-color: white;
+ top:6px;
+ left:20px;
+ border-radius: 50%;
+ transition: 0.3s ease-in-out;
+ padding-inline: 5px;
+ pointer-events: none;
+ font-size: clamp(10pt, 2.5vw, 12pt);
+
+}
+.focus{
+ position: absolute;
+ background-color: white;
+ top: -15px;
+ left:15px;
+ transform: scale(0.8);
+ padding-inline: 10px;
+ transition: 0.3s ease-in-out;
+
+}
+.input:focus + .email-container{
+ border:solid 2px yellowgreen
+}
+
+
+.password-container{
+ position:relative;
+ width:70%;
+ height:40px;
+ /* background-color: black; */
+ color:rgba(0, 0, 0, 0.758);
+ border:solid 1px var(--dark-shadow);
+ font-family: 'Poppins';
+ border-radius: 20px;
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 20px;
+}
+.email-container>input{
+ font-size: 12pt;
+ color:var(--primaryfont)
+}
+.password-container>input{
+ font-size: 15pt;
+ color:var(--primaryfont)
+}
+.sign-in{
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ width:70%;
+ height:40px;
+ color:white;
+ font-family: 'Poppins';
+ border-radius: 20px;
+ margin-top: 20px;
+ background-color: yellowgreen;
+ cursor:pointer;
+ transition: 0.3s ease-in-out;
+}
+.sign-in:active{
+ transform: scaleX(1.05);
+}
+.sign-up>span{
+ color: yellowgreen;
+ cursor:pointer;
+ transition: 0.3s;
+}
+.sign-up>span:hover{
+ text-decoration: underline 2px yellowgreen;
+
+}
+.login-error-container{
+ /* background-color: pink; */
+ margin-top: 0;
+ color:var(--red);
+ height: 20px;
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ animation: error 0.3s ease-in-out
+}
+.login-error-container p{
+ font-size: 10pt;
+}
+@keyframes error {
+ 0%{
+  transform: translateX(5px);
+ }
+ 50%{
+  transform:translateX(-10px)
+ }
+ 100%{
+  transform: translate(5px);
+ }
+}

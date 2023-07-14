@@ -1,8 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import { increase, decrease, removeItem } from '../../features/CartSlice'
 import './SmallerComponentsStyles.css'
-const MyCount = ({scale}) => {
-  const [count, setCount] = useState(0)
+import { useDispatch } from 'react-redux'
+const MyCount = ({scale, amount, id}) => {
+const dispatch = useDispatch()
+
   return (
     <div className='count-wrapper' style={{ scale: scale }}>
       <div className='count-container'>
@@ -10,17 +13,18 @@ const MyCount = ({scale}) => {
           <i
             className='fa-solid fa-minus'
             onClick={() => {
-              if (count === 0){
+              if (amount === 1){
+                dispatch(removeItem(id))
                 return;
               }
-              setCount(count - 1)
+              dispatch(decrease(id))
             }
             }
           ></i>
-          <span>{count}</span>
+          <span>{amount}</span>
           <i
             className='fa-solid fa-plus'
-            onClick={() => setCount(count + 1)}
+            onClick={() =>dispatch(increase(id))}
           ></i>
         </span>
       </div>
