@@ -16,7 +16,7 @@ const LoginSignup = () => {
   const [email, setEmail] = useState('')
   const [pword, setPwd] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
-
+  const [regScreen, setRegScreen] = useState(false)
   const validate = (eml, pwd, cb) => {
     if (!eml || !pwd) {
       setErrorMsg('email or password can not be empty')
@@ -41,7 +41,9 @@ const LoginSignup = () => {
       dispatch(signup(email))
       setErrorMsg('')
       validate(email, pword, ()=>{
-        localStorage.setItem('usertoken', data.token)
+        localStorage.setItem('usertoken', data.token);
+        setRegScreen(true)
+        
       })   
     } catch (error) {
       const { msg } = error.response.data
@@ -76,78 +78,99 @@ const LoginSignup = () => {
   const input = useRef(null)
   const pwd = useRef(null)
   return (
-    <div className='login-wrapper'>
-      <div
-        className='login-container'
-        onClick={() => {
-          if (input.current.value < 1) {
-            setFocus(false)
-          }
-          if (pwd.current.value < 1) {
-            setFocusPwd(false)
-          }
-        }}
-      >
-        <div className='login-content'>
-          <img className='logo' src={logo1} alt='logo' />
-          <a className='google-login' onClick={googleAuth}>
-            <img src={google} alt='google' />
-            continue with google
-          </a>
-          <div className='login-line'>
-            <p>or</p>
-          </div>
-          <div className='email-container'>
-            <input
-              className='input'
-              onChange={() => {
-                setEmail(input.current.value)
-              }}
-              ref={input}
-              onClick={(e) => {
-                e.stopPropagation()
-                setFocus(true)
-              }}
-              type='text'
-              id='email'
-            />
-            <label htmlFor='email' className={focus ? 'focus' : 'label'}>
-              email
-            </label>
-          </div>
-          <div className='password-container'>
-            <input
-              className='input'
-              onChange={() => {
-                setPwd(pwd.current.value)
-              }}
-              ref={pwd}
-              type='password'
-              id='password'
-              onClick={(e) => {
-                e.stopPropagation()
-                setFocusPwd(true)
-              }}
-            />
-            <label htmlFor='email' className={focusPwd ? 'focus' : 'label'}>
-              password
-            </label>
-          </div>
-          {errorMsg && (
-            <div className='login-error-container'>
-              <p>{errorMsg}</p>
+    <React.Fragment>
+      <div className='login-wrapper'>
+        <div
+          className='login-container'
+          onClick={() => {
+            if (regScreen===false){
+              const inputFocus = input.current.value;
+              const pwdFocus = pwd.current.value;
+              if (inputFocus < 1) {
+                setFocus(false)
+              }
+              if (pwdFocus < 1) {
+                setFocusPwd(false)
+              }
+            }
+            else return;
+          }}
+        >
+          <div className='login-content'>
+            <img className='logo' src={logo1} alt='logo' />
+            <a className='google-login' onClick={googleAuth}>
+              <img src={google} alt='google' />
+              continue with google
+            </a>
+            {regScreen ? (
+              <div className='reg-success'>
+                <i className='fa-solid fa-thumbs-up fa-bounce'></i>
+                <h2>Your account has been created successfully</h2>
+                <p>Sign In to continue</p>
+              </div>
+            ) : (
+              <React.Fragment>
+                <div className='login-line'>
+                  <p>or</p>
+                </div>
+                <div className='email-container'>
+                  <input
+                    className='input'
+                    onChange={() => {
+                      setEmail(input.current.value)
+                    }}
+                    ref={input}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setFocus(true)
+                    }}
+                    type='text'
+                    id='email'
+                  />
+                  <label htmlFor='email' className={focus ? 'focus' : 'label'}>
+                    email
+                  </label>
+                </div>
+                <div className='password-container'>
+                  <input
+                    className='input'
+                    onChange={() => {
+                      setPwd(pwd.current.value)
+                    }}
+                    ref={pwd}
+                    type='password'
+                    id='password'
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setFocusPwd(true)
+                    }}
+                  />
+                  <label
+                    htmlFor='email'
+                    className={focusPwd ? 'focus' : 'label'}
+                  >
+                    password
+                  </label>
+                </div>
+              </React.Fragment>
+            )}
+            {errorMsg && (
+              <div className='login-error-container'>
+                <p>{errorMsg}</p>
+              </div>
+            )}
+            <div className='sign-in' onClick={signIn}>
+              <p>Sign in</p>
             </div>
-          )}
-          <div className='sign-in' onClick={signIn}>
-            <p>Sign in</p>
+            {regScreen || <p className='sign-up'>
+              New to Tasty? <span onClick={register}> Sign up</span>
+            </p>}
           </div>
-          <p className='sign-up'>
-            New to Tasty? <span onClick={register}> Sign up</span>
-          </p>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 
 export default LoginSignup
+

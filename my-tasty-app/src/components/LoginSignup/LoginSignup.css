@@ -187,6 +187,16 @@
 .login-error-container p{
  font-size: 10pt;
 }
+.reg-success{
+ text-align: center;
+}
+.reg-success i {
+ color:yellowgreen;
+ font-size: 30pt;
+}
+.reg-success h2 {
+ font-size: 15pt;
+}
 @keyframes error {
  0%{
   transform: translateX(5px);

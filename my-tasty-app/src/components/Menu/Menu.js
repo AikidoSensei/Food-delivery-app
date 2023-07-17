@@ -11,6 +11,7 @@ const Menu = () => {
   useEffect(() => {
     dispatch(getProducts())    
   }, [])
+  
   // console.log(productItems);
   return (
     <main className='menu-wrapper'>

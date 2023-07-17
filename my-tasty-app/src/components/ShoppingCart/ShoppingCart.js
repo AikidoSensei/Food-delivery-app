@@ -5,7 +5,10 @@ import SingleCartItem from './SingleCartItem'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 const ShoppingCart = () => {
-  const {cartItems, total} = useSelector((state)=>state.cart)
+  const {cartItems, total} = useSelector((state)=>state.cart);
+  useEffect(()=>{
+    console.log(cartItems);
+  },[cartItems])
   return (
     <main className='cart-wrapper'>
       <section className='cart-container'>

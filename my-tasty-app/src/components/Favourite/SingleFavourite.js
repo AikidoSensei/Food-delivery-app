@@ -1,11 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromFavourite } from '../../features/FavouriteSlice'
 import { addToCart } from '../../features/CartSlice'
-const SingleFavourite = ({fav}) => {
- const { id, image, food_name, price, amount } = fav;
+const SingleFavourite = ({ fav }) => {
   const dispatch = useDispatch()
+  const { id, image, food_name, price, amount } = fav
   const [showCart, setShowCart] = useState(true)
+  const { cartItems, total } = useSelector((state) => state.cart)
+useEffect(()=>{
+  cartItems.find((item) => {
+      if (item.id === id) {
+       console.log(item);
+       setShowCart(false)
+      }
+    })
+},[])
+  
   return (
     <div className='favourite-content'>
       <div className='favourite'>

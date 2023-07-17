@@ -12,10 +12,10 @@ const cartSlice = createSlice({
  initialState,
  reducers:{
   addToCart: (state, action)=>{
-   const newItem = action.payload
-   state.cartItems = state.cartItems.concat(newItem)
-   console.log(state.cartItems);
-
+   const newItem = action.payload;
+   state.cartItems = state.cartItems.concat(newItem);
+   
+   
   }
   // ,
   // handleAdded:(state, action)=>{
@@ -52,6 +52,5 @@ const cartSlice = createSlice({
  }
 
 })
-console.log(cartSlice);
 export const {addToCart, removeItem, increase, decrease, evaluateTotal} = cartSlice.actions
 export default cartSlice.reducer

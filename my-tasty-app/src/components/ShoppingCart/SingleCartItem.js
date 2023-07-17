@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux'
 import { removeItem } from '../../features/CartSlice'
 const SingleCartItem = ({product}) => {
   const {id, food_name, image, price, amount} = product
-  console.log(product);
   const dispatch = useDispatch()
   return (
     <article className='cart-item'>

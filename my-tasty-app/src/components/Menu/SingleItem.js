@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import testImg from '../../Image-resources/hero-image.jpg'
 import './SingleItem.css'
 import Stars from '../SmallerComponents/Stars'
 import { getOneProduct } from '../../features/FilterSlice'
 import { addToCart,removeItem } from '../../features/CartSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { addToFavourite, removeFromFavourite } from '../../features/FavouriteSlice'
 const SingleItem = ({product}) => {
@@ -12,6 +12,22 @@ const SingleItem = ({product}) => {
   const dispatch = useDispatch();
   const [showAdded, setShowAdded] = useState(false)
   const [showFav, setShowFav] = useState(false)
+    const { cartItems, total } = useSelector((state) => state.cart)
+    const { favouriteItems } = useSelector((state) => state.favourite)
+
+    useEffect(() => {
+      cartItems.find((item) => {
+        if (item.id === id) {
+          setShowAdded(true)
+        }
+      });
+      favouriteItems.find((item) => {
+        if (item.id === id) {
+          setShowFav(true)
+        }
+      });
+
+    }, [])
   return (
     <article className='food-content'>
       {showAdded && (

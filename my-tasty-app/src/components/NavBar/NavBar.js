@@ -6,7 +6,7 @@ import CartIcon from './CartIcon'
 import MySearchBar from '../SmallerComponents/MySearchBar'
 import { Link, NavLink } from 'react-router-dom'
 import Search from '../SmallerComponents/Search'
-import { UseSelector, useSelector } from 'react-redux'
+import {useSelector } from 'react-redux'
 import { logout } from '../../features/UserSlice'
 import { useDispatch } from 'react-redux'
 export const SearchContext = React.createContext()
@@ -41,6 +41,9 @@ const NavBar = () => {
   const handleSearch = (e) => {
     e.stopPropagation()
     setShowSearch(true)
+  }
+  const googleLogout = ()=>{
+    window.open('http://localhost:5000/auth/logout', '_self')
   }
   return (
     <SearchContext.Provider value={{ handleSearch }}>
@@ -101,9 +104,10 @@ const NavBar = () => {
             <div
               className='user-log'
               onClick={(e) => {
-                e.stopPropagation
+                e.stopPropagation()
                 localStorage.removeItem('usertoken')
                 dispatch(logout())
+                googleLogout()
               }}
             >
               <span>logout</span>
@@ -119,8 +123,9 @@ const NavBar = () => {
           <div
             className='log-out'
             onClick={() => {
-              localStorage.removeItem('usertoken')
-              dispatch(logout())
+              localStorage.removeItem('usertoken');
+              dispatch(logout());
+              googleLogout()
             }}
           >
             <p>Logout</p>

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './FoodDetail.css'
-import testImg from '../../Image-resources/hero-image.jpg'
 import MyRating from '../SmallerComponents/MyRating'
 import MyCount from '../SmallerComponents/MyCount'
 import BackBtn from '../SmallerComponents/BackBtn'
 import { useSelector, useDispatch } from 'react-redux'
-import { getOneProduct } from '../../features/FilterSlice'
-import Stars from '../SmallerComponents/Stars'
+
 import Loading from '../SmallerComponents/Loading'
 import { addToCart, removeItem } from '../../features/CartSlice'
 import {
@@ -15,11 +13,27 @@ import {
 } from '../../features/FavouriteSlice'
 
 const FoodDetail = () => {
-  const [showAdded, setShowAdded] = useState(false)
-  const { singleProduct, apiLoading, isError } = useSelector(
-    (state) => state.filter
-  )
   const dispatch = useDispatch()
+  const [showAdded, setShowAdded] = useState(false)
+  const [showFav, setShowFav] = useState(false)
+  const { singleProduct, apiLoading } = useSelector((state) => state.filter)
+
+  const { cartItems } = useSelector((state) => state.cart)
+  const { favouriteItems } = useSelector((state) => state.favourite)
+
+  useEffect(() => {
+    cartItems.find((item) => {
+      if (item.id === id) {
+        setShowAdded(true)
+      }
+    })
+    favouriteItems.find((item) => {
+      if (item.id === id) {
+        setShowFav(true)
+      }
+    })
+  }, [])
+
   const {
     id,
     image,
@@ -31,7 +45,21 @@ const FoodDetail = () => {
     rating,
     reviews,
   } = singleProduct
-  const [showFav, setShowFav] = useState(false)
+
+  // GET UNIQUE CART ITEM AMOUNT
+  const amountFunc = () => {
+    let uniqueAmount = cartItems.find((item) => {
+      if (item.id === id) {
+        return item
+      }
+    })
+    if (!uniqueAmount) {
+      dispatch(removeItem(id))
+      setShowAdded(false)
+      return 1
+    }
+    return uniqueAmount.amount
+  }
   return (
     <main className='detail-wrapper'>
       <section className='detail-container'>
@@ -51,8 +79,7 @@ const FoodDetail = () => {
                 <div className='fav-container-fd'>
                   {showFav ? (
                     <i
-                      style={{ color: 'var(--red)',
-                    cursor:'pointer' }}
+                      style={{ color: 'var(--red)', cursor: 'pointer' }}
                       className='fa-sharp fa-solid fa-heart fav'
                       onClick={(e) => {
                         e.stopPropagation()
@@ -62,8 +89,7 @@ const FoodDetail = () => {
                     ></i>
                   ) : (
                     <i
-                      style={{ color: 'var(--red)',
-                    cursor:'pointer' }}
+                      style={{ color: 'var(--red)', cursor: 'pointer' }}
                       className='fa-sharp fa-regular fa-heart fav'
                       onClick={(e) => {
                         e.stopPropagation()
@@ -100,7 +126,7 @@ const FoodDetail = () => {
                 {showAdded && (
                   <div className='count-container'>
                     QTY
-                    <MyCount amount={amount} id={id} />
+                    <MyCount amount={amountFunc()} id={id} />
                   </div>
                 )}
               </section>

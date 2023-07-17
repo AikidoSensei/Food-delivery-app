@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
  users:[],
- isLoggedIn:true
+ isLoggedIn:false
 }
 const userSlice = createSlice({
  name:'user',
@@ -15,7 +15,6 @@ const userSlice = createSlice({
      state.isLoggedIn = true
     }
    })
-
   },
   googleLogin: (state)=>{
    state.isLoggedIn = true
@@ -25,7 +24,6 @@ const userSlice = createSlice({
     const newUser = payload
     state.users = state.users.concat(newUser)
     console.log(state.users);
-    
   },
   logout:(state)=>{
    state.isLoggedIn = false

@@ -10,7 +10,9 @@
   margin-right: 20px;
   border-radius: 50%;
   font-size: 15pt;
+  color: var(--primaryfont);
 }
+
 .back-btn:hover {
   background-color: rgb(220, 220, 220);
   transition: 0.3s;

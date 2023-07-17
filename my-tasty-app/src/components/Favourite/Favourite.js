@@ -11,7 +11,6 @@ const Favourite = () => {
   const {favouriteItems} = useSelector((state)=>state.favourite)
   console.log(favouriteItems);
   const [showCart, setShowCart] = useState(true)
-  console.log(favouriteItems);
  return (
     <main className='favourite-wrapper'>
       <section className='favourite-container'>
