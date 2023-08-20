@@ -32,7 +32,7 @@ const { productItems, apiLoading } = useSelector((state) => state.filter);
           <div className='main-right'>
             <div className='top-menu'>
               <p>Find Amazing Dishes</p>
-              <span>Sort by: Popularity</span>
+              <span>Sorted by: Category</span>
             </div>
             <div className='product-filter'>
               <p>{productItems.length} items found</p>

@@ -44,7 +44,6 @@ useEffect( ()=>{
   return (
     <BrowserRouter>
       <Routes>
-
         <Route path='/' element={isLoggedIn && <SharedComponent />}>
           <Route index element={isLoggedIn ? <HomePage /> : <LoginSignup/>} />
           <Route path='food-detail' element={<FoodDetail />} />

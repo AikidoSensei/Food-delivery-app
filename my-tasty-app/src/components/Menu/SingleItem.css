@@ -13,7 +13,6 @@
  }
 .food-content:hover{
  cursor:pointer;
- scale:1.01;
 }
 .food-content img{
  width:140px;

@@ -55,9 +55,13 @@
  /* background-color: pink; */
 }
 .left-content{
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ justify-content: space-between;
  position:relative;
  min-width:300px;
- min-height: 250px;
+ min-height: 550px;
  /* background-color: darkcyan; */
 }
 .discount-card{
@@ -82,7 +86,7 @@
  left:0;
  padding:1px 10px;
  border-radius: 20px;
- background:url(../../Image-resources/other-images/pexels-lumn-1410235.jpg) no-repeat center center/cover;
+ background:url(../../Image-resources/cart-image.jpg) no-repeat center center/cover;
  backdrop-filter: blur(4px);
  z-index: 0;
  transform: rotate(12deg);
@@ -167,7 +171,6 @@ color:var(--primaryfont);
  width:200px;
  }
  .cart-count{
-  /* background-color: pink; */
   width:100px;
   display:flex;
   align-items: center;
@@ -177,11 +180,10 @@ color:var(--primaryfont);
   align-items: center;
   font-size: 10pt;
   width:60px;
-  /* background-color: cornflowerblue; */
  }
  .remove-item{
-  /* background-color: gold; */
-  width:30px;
+
+  min-width:30px;
   height: 30px;
   background-color: var(--red);
   display:flex;
@@ -193,8 +195,35 @@ color:var(--primaryfont);
   font-size: 15pt;
   cursor:pointer;
  }
-    /*  */
-
+.checkout-container{
+ position: absolute;
+ bottom:0;
+ width: 100%;
+}
+.checkout-container>h2{
+ display: flex;
+ justify-content: space-between;
+ font-size: 10pt;
+ align-items: center;
+}
+.checkout-container>h2>span{
+ font-size: 15pt;
+}
+.left-content button{
+ width:100%;
+ background-color: yellowgreen;
+ border:none;
+ padding-block:10px;
+ font-size: 15pt;
+ font-family: 'poppins';
+ color:white;
+ border-radius: 10px;
+ cursor: pointer;
+ transition:0.3s
+}
+.left-content button:hover{
+ scale:0.9
+}
 @media screen and (max-width:819px) {
  .cart-discount{
   display: block;
@@ -204,7 +233,8 @@ color:var(--primaryfont);
   width: 100%;
  }
  .right-cart{
-  width:100%
+  width:100%;
+  margin-top: 100px;
  }
 
 }

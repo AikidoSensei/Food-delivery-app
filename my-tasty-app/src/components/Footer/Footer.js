@@ -4,6 +4,9 @@ import footer from '../../Image-resources/footer-2.png'
 import footerLogo from '../../Image-resources/logo-4.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import twitter from '../../Image-resources/twitter-new.svg'
+import linkedIn from '../../Image-resources/linkedin-new.svg'
+import github from '../../Image-resources/github-new.svg'
 import { Link } from 'react-router-dom'
 const element = <FontAwesomeIcon icon={faEnvelope} />
 const Footer = () => {
@@ -43,7 +46,7 @@ const Footer = () => {
             </div>
           </div>
           <div className='right-footer'>
-            <p>suberuabbas@gmail.com</p>
+            <p>adavize.webdev@gmail.com</p>
             <div className='quick-links'>
               <Link to='/about'> About </Link>
               <Link to='/location'> Location </Link>
@@ -51,9 +54,20 @@ const Footer = () => {
             <hr />
             <p>Social Media</p>
             <div className='social-media'>
-              <i class='fa-brands fa-twitter'></i>
-              <i class='fa-brands fa-github'></i>
-              <i class='fa-brands fa-linkedin'></i>
+              <a href='https://twitter.com/Dr_Adavize' target='_blank'>
+                <img src={twitter} alt='twitter' />
+              </a>
+              <a href='https://github.com/AikidoSensei/' target='_blank'>
+                <img width={50} src={github} alt='twitter' />
+              </a>
+              <a
+                href='https://www.linkedin.com/in/abbas-suberu-842394285/'
+                target='_blank'
+              >
+                <img
+                width={50}
+                src={linkedIn} alt='linkedIn' />
+              </a>
             </div>
             <hr />
             <p>

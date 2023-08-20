@@ -7,7 +7,7 @@ const BackBtn = () => {
   }
   return (
       <div className='back-btn'onClick={handleBack}>
-        <i class='fa-solid fa-arrow-left'></i>
+        <i className='fa-solid fa-arrow-left'></i>
       </div>
   )
 }

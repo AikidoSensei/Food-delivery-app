@@ -10,7 +10,7 @@ const SingleCartItem = ({product}) => {
   return (
     <article className='cart-item'>
       <div className='cart-header'>
-        <img src={image} alt='' />
+        <img src={image} alt='image' />
         <p>{food_name}</p>
       </div>
       <div className='cart-count'>

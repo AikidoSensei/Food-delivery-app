@@ -7,7 +7,6 @@ myProducts = products.map((item, index) => ({
 }))
 
 const getAll = (req, res) => {
-  console.log('someone got all data')
   res.header('Content-Type', 'application/json')
   res.send(JSON.stringify(myProducts))
 }
@@ -33,13 +32,12 @@ const getPrice = (req, res) => {
 }
 
 const getHotDeals = (req, res) => {
-  console.log('someone hit hotdeals')
   let hotNumbers = [2, 48, 56, 29, 5, 69, 58, 32, 8, 10, 27]
   let newProducts = []
   for (i = 0; i < 11; i++) {
     newProducts.push(myProducts[hotNumbers[i]])
   }
-  console.log(newProducts)
+ 
   res.header('Content-Type', 'application/json')
   res.send(JSON.stringify(newProducts))
 }

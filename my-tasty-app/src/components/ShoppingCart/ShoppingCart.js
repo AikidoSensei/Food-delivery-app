@@ -4,11 +4,31 @@ import BackBtn from '../SmallerComponents/BackBtn'
 import SingleCartItem from './SingleCartItem'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+
 const ShoppingCart = () => {
-  const {cartItems, total} = useSelector((state)=>state.cart);
-  useEffect(()=>{
-    console.log(cartItems);
-  },[cartItems])
+  const { cartItems, total } = useSelector((state) => state.cart)
+  useEffect(() => {
+    console.log(cartItems)
+  }, [cartItems])
+  const handleCheckout = ()=>{
+    fetch('/create-checkout-session', {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({
+        cartItems
+      })
+    }).then(res=>{
+      if(res.ok)return res.json()
+      return res.json().then(json =>Promise.reject(json))
+    }).then(({url})=>{
+  window.location = url
+}).catch(e=>{
+  console.error(e.error)
+})
+     
+  }
   return (
     <main className='cart-wrapper'>
       <section className='cart-container'>
@@ -34,6 +54,14 @@ const ShoppingCart = () => {
                   </div>
                 </div>
                 <div className='discount-card2'></div>
+                <div className='checkout-container'>
+                  <h2>
+                    £0.00 Discount<span>Pay £{total.toFixed(2)}</span>
+                  </h2>
+                 
+                    <button onClick={handleCheckout}>checkout</button>
+
+                </div>
               </div>
             </div>
             <div className='right-cart'>

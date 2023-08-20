@@ -49,7 +49,7 @@
  border:solid 1px var(--dark-shadow);
  font-family: 'Poppins';
  border-radius: 20px;
- font-size: clamp(10pt, 2.5vw, 12pt);
+ font-size: clamp(8pt, 2.5vw, 10pt);
  display:flex;
  justify-content: center;
  align-items: center;
@@ -206,5 +206,17 @@
  }
  100%{
   transform: translate(5px);
+ }
+}
+@media screen and (max-width:600px) {
+ .login-wrapper{
+  padding-top: 0;
+  background-color: white;
+ }
+ .login-container{
+  min-width:100%;
+  min-height:100%;
+  border-radius: 0px;
+  box-shadow:none;
  }
 }

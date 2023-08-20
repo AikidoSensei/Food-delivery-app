@@ -1,6 +1,7 @@
 
 const { getAll, getCategory, getRating, getPrice, getOne, getQuery, getHotDeals } = require('../controllers/controllers')
 
+
 const express = require('express')
 
 const routes = express.Router()
@@ -12,5 +13,6 @@ routes.route('/rating/:rating').get(getRating)
 routes.route('/price/:price').get(getPrice)
 routes.route('/hot-deals').get(getHotDeals)
 routes.route('/find').get(getQuery)
+
 
 module.exports = routes

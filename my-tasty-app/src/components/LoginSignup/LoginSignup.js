@@ -17,6 +17,10 @@ const LoginSignup = () => {
   const [pword, setPwd] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
   const [regScreen, setRegScreen] = useState(false)
+  const [focus, setFocus] = useState(false)
+  const [focusPwd, setFocusPwd] = useState(false)
+  const input = useRef(null)
+  const pwd = useRef(null)
   const validate = (eml, pwd, cb) => {
     if (!eml || !pwd) {
       setErrorMsg('email or password can not be empty')
@@ -70,13 +74,22 @@ const LoginSignup = () => {
     } catch (error) {
       const { msg } = error.response.data
       console.log(msg)
-      localStorage.removeItem('usertoken')
+      setErrorMsg('wrong email or password/ click signup instead')
+      localStorage.removeItem('usertoken');
+      return;
     }
   }
-  const [focus, setFocus] = useState(false)
-  const [focusPwd, setFocusPwd] = useState(false)
-  const input = useRef(null)
-  const pwd = useRef(null)
+  useEffect(()=>{
+    if(email.length >= 1 ){
+      setFocus(true)
+    }
+    else {setFocus(false)}
+    if(pword.length >= 1){
+      setFocusPwd(true)
+    }
+    else{setFocusPwd(false)}
+  },[email, pword])
+
   return (
     <React.Fragment>
       <div className='login-wrapper'>
