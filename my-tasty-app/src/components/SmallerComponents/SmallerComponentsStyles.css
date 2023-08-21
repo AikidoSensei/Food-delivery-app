@@ -446,7 +446,7 @@ input::placeholder {
   left:0;
   content: '';
   background-color:rgba(255, 255, 255, 0.051);
-  width:500px;
+  width:100%;
   height: inherit;
   backdrop-filter: blur(4px);
   animation: loading 1s ease-in-out infinite

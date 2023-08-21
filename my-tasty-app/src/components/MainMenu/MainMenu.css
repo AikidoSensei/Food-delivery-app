@@ -111,6 +111,14 @@
 }
 .product-filter span{
  cursor:pointer;
+ background-color:yellowgreen;
+ border-radius: 5px;
+ color:white;
+ padding: 5px 10px;
+ transition: 0.3s;
+}
+.product-filter span:hover{
+  background-color:rgba(153, 204, 52, 0.697) ;
 }
 .dish-container{
  display:flex;
