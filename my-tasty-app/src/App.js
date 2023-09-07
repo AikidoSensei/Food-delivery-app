@@ -23,20 +23,23 @@ function App() {
 // const user = true;
 useEffect( ()=>{
   const getUser = ()=>{
-  fetch('http://localhost:5000/auth/login/success', {
-    method:'GET',
-    credentials:'include',
-    headers:{
-      Accept:'application/json',
-      'Content-Type':'application/json ',
-      'Access-Control-Allow-Credentials':true,
+  fetch('https://tasty-backend-yula.onrender.com/auth/login/success', {
+    method: 'GET',
+    credentials: 'include',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json ',
+      'Access-Control-Allow-Credentials': true,
     },
-  }).then(resObject=>{
-    if(resObject)
-    {dispatch(googleLogin())};
-  }).catch(err=>{
-    console.log(err);
   })
+    .then((resObject) => {
+      if (resObject) {
+        dispatch(googleLogin())
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
   getUser()
 },[])
