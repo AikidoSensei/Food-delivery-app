@@ -14,5 +14,6 @@ export const  store = configureStore({
   query:queryReducer,
   favourite:favouriteReducer,
   user:userReducer,
- }
+ },
+ devTools: false
 })

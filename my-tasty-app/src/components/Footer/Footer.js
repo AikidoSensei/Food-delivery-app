@@ -48,8 +48,7 @@ const Footer = () => {
           <div className='right-footer'>
             <p>adavize.webdev@gmail.com</p>
             <div className='quick-links'>
-              <Link to='/about'> About </Link>
-              <Link to='/location'> Location </Link>
+              
             </div>
             <hr />
             <p>Social Media</p>

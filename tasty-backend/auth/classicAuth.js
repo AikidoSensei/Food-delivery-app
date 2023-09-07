@@ -22,7 +22,6 @@ const login = async(req, res)=>{
   return res.status(401).json({msg:'unauthorized'})
  }
  const token = authHeader.split(' ')[1]
- console.log(token);
  try {
   const decode = jwt.verify(token, process.env.JWT_SECRET)
   res.status(200).json({auth:decode.email})
