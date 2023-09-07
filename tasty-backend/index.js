@@ -18,7 +18,7 @@ const app = express()
 
 app.use(express.static('public'))
 
-const YOUR_DOMAIN = 'http://localhost:5000'
+const YOUR_DOMAIN = 'https://tasty-backend-yula.onrender.com/'
 app.use(cookieSession({
  name:'session',
  keys:['tasty'],
@@ -27,11 +27,13 @@ app.use(cookieSession({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.json())
-app.use(cors({
- origin: 'http://localhost:3000',
- methods: 'GET, POST',
- credentials: true,
-}))
+app.use(
+  cors({
+    origin: 'https://tasty-app-zfz7.onrender.com',
+    methods: 'GET, POST',
+    credentials: true,
+  })
+)
 // app.use(cors())
 
 app.use('/auth', authClient)

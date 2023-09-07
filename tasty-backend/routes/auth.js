@@ -1,5 +1,5 @@
 const passport = require('passport');
-const CLIENT_URL = 'http://localhost:3000/'
+const CLIENT_URL = 'https://tasty-app-zfz7.onrender.com/'
 
 const router = require('express').Router();
 
