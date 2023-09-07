@@ -6,7 +6,7 @@ import logo1 from '../../logo-1.png'
 import google from '../../Image-resources/google.png'
 import { login, signup } from '../../features/UserSlice'
 
-const url = 'http://localhost:5000/auth/classic'
+const url = 'https://tasty-backend-yula.onrender.com/auth/classic'
 const authURL = axios.create({
   baseURL: url,
 })
@@ -36,7 +36,7 @@ const LoginSignup = () => {
   }
 
   const googleAuth = () => {
-    window.open('http://localhost:5000/auth/google', '_self')
+    window.open('https://tasty-backend-yula.onrender.com/auth/google', '_self')
   }
   
   const register = async () => {
