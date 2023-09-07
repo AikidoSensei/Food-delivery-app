@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-const url = 'http://localhost:5000/getdata'
+const url = 'https://tasty-backend-yula.onrender.com/getdata'
 
 
 
