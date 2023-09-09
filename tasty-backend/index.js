@@ -27,13 +27,13 @@ app.use(cookieSession({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.json())
-app.use(
-  cors({
-    origin: 'https://tasty-rose.vercel.app/',
-    methods: 'GET, POST',
-    credentials: true,
-  })
-)
+// app.use(
+//   cors({
+//     origin: 'https://tasty-rose.vercel.app/',
+//     methods: 'GET, POST',
+//     credentials: true,
+//   })
+// )
 // app.use(cors())
 
 app.use('/auth', authClient)
