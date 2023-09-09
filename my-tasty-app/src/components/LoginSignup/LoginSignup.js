@@ -6,7 +6,7 @@ import logo1 from '../../logo-1.png'
 import google from '../../Image-resources/google.png'
 import { login, signup } from '../../features/UserSlice'
 
-const url = 'https://tasty-serverside.vercel.app/auth/classic'
+const url = 'https://tasty-backend-yula.onrender.com/auth/classic'
 const authURL = axios.create({
   baseURL: url,
 })
@@ -36,7 +36,7 @@ const LoginSignup = () => {
   }
 
   const googleAuth = () => {
-    window.open('https://tasty-serverside.vercel.app/auth/google', '_self')
+    window.open('https://tasty-backend-yula.onrender.com/auth/google', '_self')
   }
   
   const register = async () => {
