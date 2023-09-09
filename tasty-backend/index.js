@@ -18,7 +18,7 @@ const app = express()
 
 app.use(express.static('public'))
 
-const YOUR_DOMAIN = 'https://tasty-backend-yula.onrender.com/'
+const YOUR_DOMAIN = 'https://tasty-serverside.vercel.app/'
 app.use(cookieSession({
  name:'session',
  keys:['tasty'],
@@ -29,7 +29,7 @@ app.use(passport.session())
 app.use(express.json())
 app.use(
   cors({
-    origin: 'https://tasty-app-zfz7.onrender.com',
+    origin: 'https://tasty-rose.vercel.app/',
     methods: 'GET, POST',
     credentials: true,
   })
