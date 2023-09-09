@@ -29,7 +29,7 @@ app.use(passport.session())
 app.use(express.json())
 app.use(
   cors({
-    origin: 'https://tasty-rose.vercel.app/',
+    origin: 'https://tasty-rose.vercel.app',
     methods: 'GET, POST',
     credentials: true,
   })

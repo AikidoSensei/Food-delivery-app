@@ -1,6 +1,5 @@
 const passport = require('passport');
-const CLIENT_URL = 'https://tasty-app-zfz7.onrender.com/'
-
+const CLIENT_URL = 'https://tasty-rose.vercel.app/'
 const router = require('express').Router();
 
 router.get('/login/failed', (req, res)=>{
