@@ -6,7 +6,7 @@ import Offers from '../Offers.js/Offers'
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='homepage-wrapper'>
       <Hero/>
       <HotDeals/>
       <Offers/>

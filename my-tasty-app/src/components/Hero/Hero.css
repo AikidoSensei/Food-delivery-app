@@ -3,6 +3,8 @@
   height: 600px;
   background-color: #ffffff88;
   overflow-x:hidden;
+  display:flex;
+  justify-content: center;
 }
 .hero-slate {
   width: 100%;
