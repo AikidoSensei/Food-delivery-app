@@ -18,7 +18,7 @@ const app = express()
 
 app.use(express.static('public'))
 
-const YOUR_DOMAIN = 'https://tasty-serverside.vercel.app/'
+const YOUR_DOMAIN = 'https://tasty-backend-yula.onrender.com/'
 app.use(cookieSession({
  name:'session',
  keys:['tasty'],
