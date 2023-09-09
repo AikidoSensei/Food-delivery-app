@@ -23,7 +23,7 @@ function App() {
 // const user = true;
 useEffect( ()=>{
   const getUser = ()=>{
-  fetch('https://tasty-backend-yula.onrender.com/auth/login/success', {
+  fetch('https://tasty-serverside.vercel.app/auth/login/success', {
     method: 'GET',
     credentials: 'include',
     headers: {

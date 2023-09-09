@@ -1,5 +1,5 @@
 import axios from 'axios'
-const url = 'https://tasty-backend-yula.onrender.com/getdata'
+const url = 'https://tasty-serverside.vercel.app/getdata'
 
 
 const queryProducts = axios.create({
