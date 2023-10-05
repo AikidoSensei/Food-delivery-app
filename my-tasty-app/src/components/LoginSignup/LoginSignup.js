@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import logo1 from '../../logo-1.png'
 import google from '../../Image-resources/google.png'
+import loadin from '../../Image-resources/loginload.png'
+import loadout from '../../Image-resources/signupload.gif'
 import { login, signup } from '../../features/UserSlice'
 
 const url = 'https://tasty-backend-yula.onrender.com/auth/classic'
@@ -19,17 +21,23 @@ const LoginSignup = () => {
   const [regScreen, setRegScreen] = useState(false)
   const [focus, setFocus] = useState(false)
   const [focusPwd, setFocusPwd] = useState(false)
+  const [registerLoading, setRegisterLoading] = useState(false)
+  const [loginLoading, setLoginLoading] = useState(false)
   const input = useRef(null)
   const pwd = useRef(null)
   const validate = (eml, pwd, cb) => {
     if (!eml || !pwd) {
       setErrorMsg('email or password can not be empty')
       localStorage.removeItem('usertoken')
+      setLoginLoading(false)
+      setRegisterLoading(false)
       return;
     }
     if (pwd.length <= 4 && pwd.length > 0) {
       setErrorMsg('password characters can not be less than 5')
       localStorage.removeItem('usertoken')
+      setLoginLoading(false)
+      setRegisterLoading(false)
       return;
     }
     else {cb()}
@@ -40,11 +48,12 @@ const LoginSignup = () => {
   }
   
   const register = async () => {
-    try {
+    try {   
       const { data } = await authURL.post('/register', { email, pword })
       dispatch(signup(email))
       setErrorMsg('')
       validate(email, pword, ()=>{
+        setRegisterLoading(true)
         localStorage.setItem('usertoken', data.token);
         setRegScreen(true)
         
@@ -52,15 +61,18 @@ const LoginSignup = () => {
     } catch (error) {
       const { msg } = error.response.data
       setErrorMsg(msg)
+      setRegisterLoading(false)
       console.log(msg)
     }
   }
   const signIn = () => {
     try {
+      setLoginLoading(true)
       validate(email, pword, async ()=>{
         if (email && pword) {
           const token = localStorage.getItem('usertoken')
           if (!token) {
+            setLoginLoading(false)
             setErrorMsg('wrong email or password')
           }
           const { data } = await authURL.get('/login', {
@@ -76,6 +88,7 @@ const LoginSignup = () => {
       console.log(msg)
       setErrorMsg('wrong email or password/ click signup instead')
       localStorage.removeItem('usertoken');
+      setLoginLoading(false)
       return;
     }
   }
@@ -96,17 +109,16 @@ const LoginSignup = () => {
         <div
           className='login-container'
           onClick={() => {
-            if (regScreen===false){
-              const inputFocus = input.current.value;
-              const pwdFocus = pwd.current.value;
+            if (regScreen === false) {
+              const inputFocus = input.current.value
+              const pwdFocus = pwd.current.value
               if (inputFocus < 1) {
                 setFocus(false)
               }
               if (pwdFocus < 1) {
                 setFocusPwd(false)
               }
-            }
-            else return;
+            } else return
           }}
         >
           <div className='login-content'>
@@ -173,11 +185,26 @@ const LoginSignup = () => {
               </div>
             )}
             <div className='sign-in' onClick={signIn}>
-              <p>Sign in</p>
+              <p>
+                {loginLoading ? (
+                  <img src={loadin} alt='loading' className='signinload' />
+                ) : (
+                  'Sign in'
+                )}
+              </p>
             </div>
-            {regScreen || <p className='sign-up'>
-              New to Tasty? <span onClick={register}> Sign up</span>
-            </p>}
+            {regScreen || (
+              <p className='sign-up'>
+                New to Tasty?
+                <span onClick={register}>
+                  {registerLoading ? (
+                    <img src={loadout} alt='loading' className='signinload' />
+                  ) : (
+                    'Sign up'
+                  )}
+                </span>
+              </p>
+            )}
           </div>
         </div>
       </div>

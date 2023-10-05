@@ -165,9 +165,15 @@
 .sign-in:active{
  transform: scaleX(1.05);
 }
+.sign-up{
+ display:flex;
+ align-items: center;
+}
 .sign-up>span{
  color: yellowgreen;
  cursor:pointer;
+ display: flex;
+ align-items: center;
  transition: 0.3s;
 }
 .sign-up>span:hover{
@@ -218,5 +224,18 @@
   min-height:100%;
   border-radius: 0px;
   box-shadow:none;
+ }
+}
+.signinload{
+ width:20px;
+ height: 20px;
+ animation: spinning 1s ease-in linear infinite;
+}
+@keyframes spinning {
+ from{
+  transform: rotate(0deg);
+ }
+ to{
+  transform: rotate(360deg);
  }
 }

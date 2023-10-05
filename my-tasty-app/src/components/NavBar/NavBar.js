@@ -43,7 +43,7 @@ const NavBar = () => {
     setShowSearch(true)
   }
   const googleLogout = ()=>{
-    window.open('http://localhost:5000/auth/logout', '_self')
+    window.open('https://tasty-rose.vercel.app', '_self')
   }
   return (
     <SearchContext.Provider value={{ handleSearch }}>
