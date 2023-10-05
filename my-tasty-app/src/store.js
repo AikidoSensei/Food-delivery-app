@@ -24,6 +24,5 @@ export const store = configureStore({
     favourite: favouriteReducer,
     user: persistedReducer,
   },
-  devTools: true,
 })
 export const persistor = persistStore(store)
