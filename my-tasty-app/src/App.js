@@ -16,11 +16,14 @@ import Footer from './components/Footer/Footer'
 import LoginSignup from './components/LoginSignup/LoginSignup'
 import { useSelector, useDispatch } from 'react-redux'
 import { googleLogin } from './features/UserSlice'
-
+import ProtectedRoutes from './ProtectedRoute'
 function App() {
   const {isLoggedIn} = useSelector((state)=>state.user)
   const dispatch = useDispatch()
 // const user = true;
+useEffect(()=>{
+
+})
 useEffect( ()=>{
   const getUser = ()=>{
   fetch('https://tasty-backend-yula.onrender.com/auth/login/success', {
@@ -47,32 +50,19 @@ useEffect( ()=>{
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={isLoggedIn && <SharedComponent />}>
-          <Route index element={isLoggedIn ? <HomePage /> : <LoginSignup />} />
-          <Route
-            path='food-detail'
-            element={isLoggedIn ? <FoodDetail /> : <LoginSignup />}
-          />
-          <Route
-            path='cart'
-            element={isLoggedIn ? <ShoppingCart /> : <LoginSignup />}
-          />
-          <Route
-            path='contact'
-            element={isLoggedIn ? <Contacts /> : <LoginSignup />}
-          />
-          <Route
-            path='menu'
-            element={isLoggedIn ? <MainMenu /> : <LoginSignup />}
-          />
-          <Route
-            path='location'
-            element={isLoggedIn ? <Location /> : <LoginSignup />}
-          />
-          <Route
-            path='favourite'
-            element={isLoggedIn ? <Favourite /> : <LoginSignup />}
-          />
+        <Route element={<ProtectedRoutes />}>
+          <Route path='/' element={<SharedComponent />}>
+            <Route
+              index
+              element={<HomePage />}
+            />
+            <Route path='food-detail' element={<FoodDetail />} />
+            <Route path='cart' element={<ShoppingCart />} />
+            <Route path='contact' element={<Contacts />} />
+            <Route path='menu' element={<MainMenu />} />
+            <Route path='location' element={<Location />} />
+            <Route path='favourite' element={<Favourite />} />
+          </Route>
           <Route path='login' element={<LoginSignup />} />
           <Route path='*' element={<PageNotFound />} />
         </Route>
