@@ -49,11 +49,12 @@ const LoginSignup = () => {
   
   const register = async () => {
     try {   
+      setRegisterLoading(true)
       const { data } = await authURL.post('/register', { email, pword })
       dispatch(signup(email))
       setErrorMsg('')
       validate(email, pword, ()=>{
-        setRegisterLoading(true)
+        
         localStorage.setItem('usertoken', data.token);
         setRegScreen(true)
         
@@ -187,7 +188,11 @@ const LoginSignup = () => {
             <div className='sign-in' onClick={signIn}>
               <p>
                 {loginLoading ? (
-                  <img src={loadin} alt='loading' className='signinload' />
+                  <img
+                    src={loadin}
+                    alt='loading'
+                    className='signinload'
+                  />
                 ) : (
                   'Sign in'
                 )}
@@ -198,7 +203,11 @@ const LoginSignup = () => {
                 New to Tasty?
                 <span onClick={register}>
                   {registerLoading ? (
-                    <img src={loadout} alt='loading' className='signinload' />
+                    <img
+                      src={loadout}
+                      alt='loading'
+                      className='signoutload'
+                    />
                   ) : (
                     'Sign up'
                   )}
