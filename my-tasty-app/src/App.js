@@ -45,7 +45,7 @@ useEffect( ()=>{
     })
 }
   getUser()
-},[])
+},[isLoggedIn])
 
   return (
     <BrowserRouter>
