@@ -47,21 +47,20 @@ const LoginSignup = () => {
     window.open('https://tasty-backend-yula.onrender.com/auth/google', '_self')
   }
   
-  const register = async () => {
+  const register = () => {
     try {   
       setRegisterLoading(true)
-      const { data } = await authURL.post('/register', { email, pword })
-      dispatch(signup(email))
-      setErrorMsg('')
-      validate(email, pword, ()=>{
-        
+      validate(email, pword, async ()=>{
+        const { data } = await authURL.post('/register', { email, pword })
+        dispatch(signup(email))
+        setErrorMsg('')
         localStorage.setItem('usertoken', data.token);
         setRegScreen(true)
-        
-      })   
+        setRegisterLoading(false)
+      }) 
     } catch (error) {
       const { msg } = error.response.data
-      setErrorMsg(msg)
+      setErrorMsg('something went wrong please try again')
       setRegisterLoading(false)
       console.log(msg)
     }

@@ -7,55 +7,49 @@ import HomePage from './components/HomePage/HomePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SharedComponent from './SharedComponent'
 import Location from './components/Location/Location'
-import Contacts from './components/Contacts/Contacts';
+import Contacts from './components/Contacts/Contacts'
 import PageNotFound from './components/SmallerComponents/PageNotFound'
 import MainMenu from './components/MainMenu/MainMenu'
 import Favourite from './components/Favourite/Favourite'
-import Offers from './components/Offers.js/Offers'
-import Footer from './components/Footer/Footer'
+
 import LoginSignup from './components/LoginSignup/LoginSignup'
 import { useSelector, useDispatch } from 'react-redux'
 import { googleLogin } from './features/UserSlice'
 import ProtectedRoutes from './ProtectedRoute'
 function App() {
-  const {isLoggedIn} = useSelector((state)=>state.user)
+  const { isLoggedIn } = useSelector((state) => state.user)
   const dispatch = useDispatch()
-// const user = true;
-useEffect(()=>{
+  // const user = true;
 
-})
-useEffect( ()=>{
-  const getUser = ()=>{
-  fetch('https://tasty-backend-yula.onrender.com/auth/login/success', {
-    method: 'GET',
-    credentials: 'include',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json ',
-      'Access-Control-Allow-Credentials': true,
-    },
-  })
-    .then((resObject) => {
-      if (resObject) {
-        dispatch(googleLogin())
-      }
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-}
-  getUser()
-},[isLoggedIn])
+  useEffect(() => {
+    const getUser = () => {
+      fetch('https://tasty-backend-yula.onrender.com/auth/login/success', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json ',
+          'Access-Control-Allow-Credentials': true,
+        },
+      })
+        .then((resObject) => {
+          if (resObject) {
+            dispatch(googleLogin())
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+    getUser()
+  }, [isLoggedIn])
 
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<ProtectedRoutes />}>
           <Route path='/' element={<SharedComponent />}>
-            <Route
-              index
-              element={<HomePage />}
-            />
+            <Route index element={<HomePage />} />
             <Route path='food-detail' element={<FoodDetail />} />
             <Route path='cart' element={<ShoppingCart />} />
             <Route path='contact' element={<Contacts />} />
@@ -68,8 +62,7 @@ useEffect( ()=>{
         </Route>
       </Routes>
     </BrowserRouter>
-  ) 
+  )
 }
 
 export default App
- 
