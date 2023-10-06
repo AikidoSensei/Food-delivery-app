@@ -52,6 +52,9 @@ const LoginSignup = () => {
       setRegisterLoading(true)
       validate(email, pword, async ()=>{
         const { data } = await authURL.post('/register', { email, pword })
+        if (!data){
+          setErrorMsg('Something went wrong try again')
+        }
         dispatch(signup(email))
         setErrorMsg('')
         localStorage.setItem('usertoken', data.token);
@@ -59,9 +62,9 @@ const LoginSignup = () => {
         setRegisterLoading(false)
       }) 
     } catch (error) {
+      setRegisterLoading(false)
       const { msg } = error.response.data
       setErrorMsg('something went wrong please try again')
-      setRegisterLoading(false)
       console.log(msg)
     }
   }
